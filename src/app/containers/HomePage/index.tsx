@@ -22,8 +22,8 @@ export function HomePage() {
     <PageContainer>
       <Navbar />
       <TopSection />
-      <MiddleSection />
       <BookCard />
+      <MiddleSection />
     </PageContainer>
   );
 }

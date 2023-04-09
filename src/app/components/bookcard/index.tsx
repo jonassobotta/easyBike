@@ -18,6 +18,7 @@ const CardContainer = styled.div`
   min-height: 4.3em;
   box-shadow: 0 1.3px 12px -3px rgba(0, 0, 0, 0.4);
   ${tw`
+    mt-10
     flex
     justify-center
     items-center
@@ -51,7 +52,7 @@ const Icon = styled.span`
 
 const SmallIcon = styled.span`
   ${tw`
-    text-gray-500
+    text-white
     fill-current
     text-xs
     md:text-base
@@ -61,7 +62,7 @@ const SmallIcon = styled.span`
 
 const Name = styled.span`
   ${tw`
-    text-gray-600
+    text-white
     text-xs
     md:text-sm
     cursor-pointer
@@ -150,7 +151,7 @@ export function BookCard() {
         )}
       </ItemContainer>
       <Marginer direction="horizontal" margin="2em" />
-      <Button text="Book Your easybike" />
+      <Button text="Book Now!" />
     </CardContainer>
   );
 }
