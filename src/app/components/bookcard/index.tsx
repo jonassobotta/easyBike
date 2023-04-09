@@ -18,7 +18,6 @@ const CardContainer = styled.div`
   min-height: 4.3em;
   box-shadow: 0 1.3px 12px -3px rgba(0, 0, 0, 0.4);
   ${tw`
-    mt-10
     flex
     justify-center
     items-center

@@ -6,6 +6,8 @@ import { TopSection } from "./topsection";
 import { MiddleSection } from "./middlesection";
 import { BookCard } from "../../components/bookcard";
 import { BookingSteps } from "./bookingSteps";
+import { Marginer } from "../../components/marginer";
+import { Footer } from "../../components/footer";
 
 const PageContainer = styled.div `
     ${tw`
@@ -23,9 +25,13 @@ export function HomePage() {
     <PageContainer>
       <Navbar />
       <TopSection />
+      <Marginer direction="vertical" margin="4em" />
       <BookCard />
+      <Marginer direction="vertical" margin="10em" />
       <BookingSteps />
+      <Marginer direction="vertical" margin="8em" />
       <MiddleSection />
+      <Footer />
     </PageContainer>
   );
 }

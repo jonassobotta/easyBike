@@ -1,7 +1,13 @@
 import React from "react";
-import BikeLogoImg from "../../assets/logo.svg";
+import { faBicycle } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+interface ILogoProps {
+    color?: "white" | "dark";
+    bgColor?: "white" | "dark";
+  }
 
 const LogoContainer = styled.div `
     ${tw`
@@ -19,7 +25,9 @@ const LogoText = styled.div `
         text-black
         m-1
     `};
-
+    
+    ${({ color }: any) => (color === "white" ? tw`text-white` : tw`text-black`)};
+    
     & span {
         ${tw`text-green-500`}
     }
@@ -38,16 +46,20 @@ const Image = styled.div `
     }
 `;
 
-export function Logo() {
+export function Logo(props: ILogoProps) {
+    const { color, bgColor } = props;
+
     return (
         <LogoContainer>
-            <Image>
-                <img src={BikeLogoImg} alt="logo"/>
-            </Image>
-            <LogoText><span>e</span>asy<span>bike</span></LogoText>
-            <Image>
-                <img src={BikeLogoImg} alt="logo"/>
-            </Image>
+            <LogoText color={color || "dark"}>
+                <FontAwesomeIcon icon={faBicycle} />
+            </LogoText>
+            <LogoText color={color || "dark"}>
+                <span>e</span>asy<span>bike</span>
+            </LogoText>
+            <LogoText color={color || "dark"}>
+                <FontAwesomeIcon icon={faBicycle} />
+            </LogoText>
         </LogoContainer>
     );
 }
