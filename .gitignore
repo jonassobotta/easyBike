@@ -1,0 +1,45 @@
+# Ignore node_modules directories
+node_modules/
+packages/*/node_modules/
+packages/**/node_modules/
+
+# Ignore build output
+build/
+dist/
+out/
+public/
+*.log
+
+# OS
+.DS_Store
+
+# Ignore environment files
+.env*
+.env*/
+
+# Ignore dependencies
+package-lock.json
+yarn.lock
+yarn-error.log
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.iml
+
+# Ignore NestJS build files
+nest-cli.json
+tsconfig.build.json
+
+# Ignore build artifacts and cache
+*.db
+*.sqlite
+*.sqlite3
+*.swp
+*.swo
+*.cache
+*.log
+
+# Ignore test and coverage files
+coverage/
+test-results.xml
