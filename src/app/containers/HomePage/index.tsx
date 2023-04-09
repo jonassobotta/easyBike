@@ -5,6 +5,7 @@ import { Navbar } from "../../components/navbar";
 import { TopSection } from "./topsection";
 import { MiddleSection } from "./middlesection";
 import { BookCard } from "../../components/bookcard";
+import { BookingSteps } from "./bookingSteps";
 
 const PageContainer = styled.div `
     ${tw`
@@ -23,6 +24,7 @@ export function HomePage() {
       <Navbar />
       <TopSection />
       <BookCard />
+      <BookingSteps />
       <MiddleSection />
     </PageContainer>
   );
