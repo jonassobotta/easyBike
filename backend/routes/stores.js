@@ -26,6 +26,6 @@ router.get("/find/:id", getStore);
 
 //GET ALL
 router.get("/", getStores);
-router.get("/room/:id", getStoreBikes);
+router.get("/bike/:id", getStoreBikes);
 
 export default router;

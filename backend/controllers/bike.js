@@ -36,10 +36,10 @@ export const updateBike = async (req, res, next) => {
 export const updateBikeAvailability = async (req, res, next) => {
   try {
     await Bike.updateOne(
-      { "BikeNumbers._id": req.params.id },
+      {"_id" : req.params.id },
       {
         $push: {
-          "BikeNumbers.$.unavailableDates": req.body.dates
+          "bookedDays": req.body.bookedDays
         },
       }
     );

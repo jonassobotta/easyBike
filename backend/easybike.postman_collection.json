@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "5f95563b-2793-40c3-8c1f-28e403a28b1e",
+		"name": "easybike",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "stores",
+			"item": [
+				{
+					"name": "create store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"easybike Mannheim Coblitzallee\",\n    \"address\": \"Coblitzallee 10\",\n    \"postalCode\": \"68163\",\n    \"city\": \"Mannheim\",\n    \"Bikes\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/stores",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update store",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"Coblitzallee 9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/stores/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"stores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435a9e6c955f0d834f74393"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete store",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "ocalhost:3001/api/stores/:id",
+							"host": [
+								"ocalhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"stores",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get store by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/stores/find/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"stores",
+								"find",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435a9e6c955f0d834f74393"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/stores",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get store bikes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/stores/bike/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"stores",
+								"bike",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435a9e6c955f0d834f74393"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bikes",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Standard\",\n    \"type\": \"adult\",\n    \"price\": 4,\n    \"description\": \"standard adult bike\",\n    \"image\": \"./assets/standard1.png\",\n    \"bookedDays\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/bikes/:storeid",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bikes",
+								":storeid"
+							],
+							"variable": [
+								{
+									"key": "storeid",
+									"value": "6435a9e6c955f0d834f74393"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update bike",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 3.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/bikes/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bikes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435ac46fe2fef5814fc69bf"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update availability",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookedDays\": [\"2023-04-11\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/bikes/availability/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bikes",
+								"availability",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435ac46fe2fef5814fc69bf"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete bike",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/bikes/:id/:storeid",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bikes",
+								":id",
+								":storeid"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435aad1c955f0d834f74396"
+								},
+								{
+									"key": "storeid",
+									"value": "6435a9e6c955f0d834f74393"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get bike by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/bikes/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bikes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6435ac46fe2fef5814fc69bf"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all bikes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/bikes",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api//users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check authentication",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/users/checkauthentication",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								"checkauthentication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkuser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/users/checkuser/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								"checkuser",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkadmin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/users/checkadmin/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"users",
+								"checkadmin",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Jonas\",\n    \"email\": \"jonas-sobotta@web.de\",\n    \"country\": \"germany\",\n    \"img\": \"\",\n    \"city\": \"Mannheim\",\n    \"phone\": \"123456789\",\n    \"password\": \"password123\",\n    \"isAdmin\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Jonas\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
