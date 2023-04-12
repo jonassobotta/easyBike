@@ -151,7 +151,7 @@ export function BookCard() {
         )}
       </ItemContainer>
       <Marginer direction="horizontal" margin="2em" />
-      <Button to="/choosestore" text="Book" />
+      <Button to="/booking-process/choose-store" text="Book" />
     </CardContainer>
   );
 }

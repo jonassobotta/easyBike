@@ -3,6 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { Logo } from "../logo";
 import { NavItems } from "./navitems";
+import { useNavigate } from "react-router-dom";
 
 const NavbarContainer = styled.div`
     min-height: 68px;
@@ -20,9 +21,15 @@ const NavbarContainer = styled.div`
 const LogoContainer = styled.div``;
 
 export function Navbar() {
+    const navigate = useNavigate();
+
+    const handleLogoClick = () => {
+        navigate("/");
+    }
+
     return (
         <NavbarContainer>
-            <LogoContainer>
+            <LogoContainer onClick={handleLogoClick}>
                 <Logo />
             </LogoContainer>
             <NavItems />

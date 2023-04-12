@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 interface IStepProps {
     theme: "active" | "inactive";
@@ -18,6 +19,10 @@ const BaseStep = styled.div`
         justify-center
         p-6
     `};
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 1.3px 24px -3px rgba(200, 0, 0, 0.8);
+    }
 `;
 
 const ActiveStep = styled(BaseStep)`
@@ -63,16 +68,32 @@ const StepContainer = styled.div`
       transition-colors
       hover:text-red-500
       m-3
-    `};
+    `};       
 `;
 
 export function Step(props: IStepProps) {
     const { theme, icon, title } = props;
 
+    const navigate = useNavigate();
+
+    const handleStepClick = () => {
+        switch(title) {
+            case "Pick Up Date":
+                navigate("/booking-process/pick-up-date");
+                break;
+            case "Choose Store":
+                navigate("/booking-process/choose-store");
+                break;
+            case "Book Bike":
+                navigate("/booking-process/book-bike");
+            break;
+        }
+    }
+
     if(theme === "active") {
         return (
             <StepContainer>
-            <ActiveStep>
+            <ActiveStep onClick={handleStepClick}>
                 <ActiveStepIcon>
                     <FontAwesomeIcon icon={icon} />
                 </ActiveStepIcon>
@@ -83,12 +104,12 @@ export function Step(props: IStepProps) {
     } else {    
         return (
             <StepContainer>
-            <BaseStep>
+            <BaseStep onClick={handleStepClick}>
                 <BaseIcon>
-                    <FontAwesomeIcon icon={props.icon} />
+                    <FontAwesomeIcon icon={icon} />
                 </BaseIcon>
             </BaseStep>
-            <BaseTitle>{props.title}</BaseTitle>
+            <BaseTitle>{title}</BaseTitle>
             </StepContainer>
         );
     }

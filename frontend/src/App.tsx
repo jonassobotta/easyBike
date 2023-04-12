@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HomePage } from './app/containers/HomePage';
 import { ChooseStore } from './app/containers/BookingProcess/choosestore';
+import { PickUpDate } from './app/containers/BookingProcess/pickup';
+import { BookBike } from './app/containers/BookingProcess/bookbike';
 
 const AppContainer = styled.div`
   ${tw`
@@ -23,7 +25,9 @@ function App() {
       <AppContainer>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/choosestore" element={<ChooseStore />} />
+          <Route path="/booking-process/choose-store" element={<ChooseStore />} />
+          <Route path="/booking-process/pick-up-date" element={<PickUpDate />} />
+          <Route path="/booking-process/book-bike" element={<BookBike />} />
         </Routes>
       </AppContainer>
     </Router>

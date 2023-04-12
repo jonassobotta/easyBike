@@ -15,6 +15,9 @@ const LogoContainer = styled.div `
         items-center
         m-2
     `};
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const LogoText = styled.div `

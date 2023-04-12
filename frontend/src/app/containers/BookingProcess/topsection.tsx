@@ -44,7 +44,7 @@ export function TopSection(props: ITopSectionProps) {
     return (
         <Container>
             <StepsContainer>
-                    <Step theme={pickUpActive ? "active" : "inactive"} title="Pick Up" icon={faCalendarAlt} />
+                    <Step theme={pickUpActive ? "active" : "inactive"} title="Pick Up Date" icon={faCalendarAlt} />
                     <Step theme={chooseStoreActive ? "active" : "inactive"} title="Choose Store" icon={faMapMarkedAlt} />
                     <Step theme={bookBikeActive ? "active" : "inactive"} title="Book Bike" icon={faBicycle} />
             </StepsContainer>
