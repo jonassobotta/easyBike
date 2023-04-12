@@ -9,6 +9,7 @@ import styled, { css } from "styled-components";
 import tw from "twin.macro";
 import { Button } from "../button";
 import { Marginer } from "../marginer";
+import { useNavigate } from "react-router-dom";
 
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -150,7 +151,7 @@ export function BookCard() {
         )}
       </ItemContainer>
       <Marginer direction="horizontal" margin="2em" />
-      <Button text="Book Now!" />
+      <Button to="/choosestore" text="Book" />
     </CardContainer>
   );
 }

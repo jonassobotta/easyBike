@@ -94,6 +94,18 @@ import {
       <Container>
         <Title>Our Working Steps</Title>
         <StepsContainer>
+        <StepContainer>
+            <Step>
+              <StepIcon>
+                <FontAwesomeIcon icon={faCalendarAlt} />
+              </StepIcon>
+            </Step>
+            <StepTitle>Pick-Up Date</StepTitle>
+            <StepDescription>
+              Pickup the Best Date to rent a bike for you.
+            </StepDescription>
+          </StepContainer>
+
           <StepContainer>
             <Step>
               <StepIcon>
@@ -105,17 +117,7 @@ import {
               Find the nearest easybike point and book your bike.
             </StepDescription>
           </StepContainer>
-          <StepContainer>
-            <Step>
-              <StepIcon>
-                <FontAwesomeIcon icon={faCalendarAlt} />
-              </StepIcon>
-            </Step>
-            <StepTitle>Pick-Up Date</StepTitle>
-            <StepDescription>
-              Pickup the Best Date to rent a bike for you.
-            </StepDescription>
-          </StepContainer>
+          
           <StepContainer>
             <Step>
               <StepIcon>

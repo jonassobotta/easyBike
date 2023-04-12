@@ -76,9 +76,6 @@ export function TopSection() {
       <ImageContainer>
         <img src={BackgroundImage} alt="" />
         <SloganContainer>Book your easybike!</SloganContainer>
-        <ButtonContainer>
-          <Button text="Book Now" />
-        </ButtonContainer>
       </ImageContainer>
     </TopSectionContainer>
   );
