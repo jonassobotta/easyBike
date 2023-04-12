@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { ImageDescription } from "../../components/middlesection/imagedescription";
-import useFetch from "../../hooks/useFetch";
 
 import StandardBike from "../../assets/standard-bike.png";
 
@@ -34,9 +33,6 @@ const Title = styled.h1`
 `;
 
 export function MiddleSection() {
-
-    const { data, loading, error} = useFetch("/stores")
-    console.log(data);
     
     return (
         <MiddleSectionContainer>

@@ -23,6 +23,14 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    zip: {
+      type: String,
+      required: true,
+    },
+    street: {
+      type: String,
+      required: true,
+    },
     phone: {
       type: String,
       required: true,

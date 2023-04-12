@@ -64,10 +64,10 @@ const OutlinedButton = styled(BaseButton)`
 
 const FilledButton = styled(BaseButton)`
   ${tw`
-    border-green-500
-    text-green-500
+    border-red-500
+    text-red-500
     bg-transparent
-    hover:bg-green-500
+    hover:bg-red-500
     hover:text-white
     hover:border-transparent
   `};

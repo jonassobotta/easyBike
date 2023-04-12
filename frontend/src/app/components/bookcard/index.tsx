@@ -9,11 +9,14 @@ import styled, { css } from "styled-components";
 import tw from "twin.macro";
 import { Button } from "../button";
 import { Marginer } from "../marginer";
-import { useNavigate } from "react-router-dom";
 
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { SCREENS } from "../responsive";
+
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators, State } from "../../state";
 
 const CardContainer = styled.div`
   min-height: 4.3em;
@@ -102,7 +105,7 @@ const DateCalendar = styled(Calendar)`
 export function BookCard() {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [isStartCalendarOpen, setStartCalendarOpen] = useState(false);
-  const [returnDate, setReturnDate] = useState<Date>(new Date());
+  const [returnDate, setreturnDate] = useState<Date>(new Date());
   const [isReturnCalendarOpen, setReturnCalendarOpen] = useState(false);
 
   const toggleStartDateCalendar = () => {
@@ -110,9 +113,18 @@ export function BookCard() {
     if (isReturnCalendarOpen) setReturnCalendarOpen(false);
   };
 
-  const toggleReturnDateCalendar = () => {
+  const togglereturnDateCalendar = () => {
     setReturnCalendarOpen(!isReturnCalendarOpen);
     if (isStartCalendarOpen) setStartCalendarOpen(false);
+  };
+
+  const state = useSelector((state: State) => state.booking);
+  const dispatch = useDispatch();
+  const { setDates } = bindActionCreators(actionCreators, dispatch);
+  
+  const handleClick = () => {
+    setDates({ startDate, returnDate});
+    console.log(state);
   };
 
   return (
@@ -136,7 +148,7 @@ export function BookCard() {
         <Icon>
           <FontAwesomeIcon icon={faCalendarAlt} />
         </Icon>
-        <Name onClick={toggleReturnDateCalendar}>Return Date</Name>
+        <Name onClick={togglereturnDateCalendar}>Return Date</Name>
         <SmallIcon>
           <FontAwesomeIcon
             icon={isReturnCalendarOpen ? faCaretUp : faCaretDown}
@@ -146,12 +158,12 @@ export function BookCard() {
           <DateCalendar
             offset 
             value={returnDate}
-            onChange={setReturnDate as any}
+            onChange={setreturnDate as any}
           />
         )}
       </ItemContainer>
       <Marginer direction="horizontal" margin="2em" />
-      <Button to="/booking-process/choose-store" text="Book" />
+      <Button onClick={handleClick} to="/booking-process/choose-store" text="Book" />
     </CardContainer>
   );
 }

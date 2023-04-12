@@ -3,6 +3,10 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { Navbar } from "../../components/navbar";
 import { TopSection } from "./topsection";
+import { Button } from "../../components/button";
+import { BookForm } from "../../components/bookForm";
+import { Footer } from "../../components/footer";
+import { Marginer } from "../../components/marginer";
 
 const PageContainer = styled.div `
     ${tw`
@@ -30,6 +34,15 @@ export function BookBike() {
         <Navbar />
         <TopSection pickUpActive={false} chooseStoreActive={false} bookBikeActive={true}/>
         <Title>Book Bike</Title>
+        
+        <BookForm />
+
+        <div className="flex flex-row justify-between">
+        <Button text="Back" theme="filled" to="/booking-process/choose-store" />
+        
+        </div>
+        <Marginer direction="vertical" margin="10em" />
+        <Footer />
     </PageContainer>
   );
 }
