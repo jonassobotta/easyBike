@@ -58,9 +58,9 @@ export function ImageDropdown(){
                     </option>
                 ))}
             </select>
-            {state.selectedIndex !== 0 && (
+            {
                 <img src={state.urls[state.selectedIndex]} alt="bike" />
-            )}
+            }
         </Container>
 
 

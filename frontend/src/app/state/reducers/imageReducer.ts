@@ -1,5 +1,6 @@
 import { ActionType } from "../action_types";
 import { Action } from "../actions";
+import StandardBikeImg from '../../assets/standard-bike.png';
 
 interface ImagesState {
     urls: string[];
@@ -8,7 +9,7 @@ interface ImagesState {
 
 const initialState = {
     urls: [
-        '../assets/standard-bike.jpg',
+        StandardBikeImg,
     ],
     selectedIndex: 0,
 };
