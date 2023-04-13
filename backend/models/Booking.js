@@ -7,6 +7,10 @@ const BookingSchema = new Schema({
         ref: "Store",
         required: true,
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
     userInfo: {
         type: {
             name: String,
