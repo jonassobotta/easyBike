@@ -1,5 +1,6 @@
 export enum ActionType {
-    SET_DATES = 'SET_DATES',
+    SET_START_DATE = 'SET_START_DATE',
+    SET_RETURN_DATE = 'SET_RETURN_DATE',
     SET_STORE = 'SET_STORE',
     SET_USER_INFO = 'SET_USER_INFO'
 }

@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { useSelector } from "react-redux";
+import { State } from "../../state";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../state";
+import { useEffect } from "react";
 
 const BookFormContainer = styled.form`
     ${tw`
@@ -58,6 +64,10 @@ export function BookForm() {
     const [zip, setZip] = React.useState("");
     const [phone, setPhone] = React.useState("");
 
+    const state = useSelector ((state: State) => state.booking);
+    const dispatch = useDispatch();
+    const { setUserInfo } = bindActionCreators(actionCreators, dispatch);
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log("Name: " + name);
@@ -67,7 +77,13 @@ export function BookForm() {
         console.log("Street: " + street);
         console.log("Zip: " + zip);
         console.log("Phone: " + phone);
+
+        setUserInfo({name, email, country, city, street, zip, phone});
     };
+
+    useEffect(() => {
+        console.log(state.userInfo);
+    }, [state.userInfo]);
 
     return (
         <BookFormContainer onSubmit={handleSubmit}>

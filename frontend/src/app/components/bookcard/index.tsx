@@ -103,9 +103,9 @@ const DateCalendar = styled(Calendar)`
 ` as any;
 
 export function BookCard() {
-  const [startDate, setStartDate] = useState<Date>(new Date());
+  
   const [isStartCalendarOpen, setStartCalendarOpen] = useState(false);
-  const [returnDate, setreturnDate] = useState<Date>(new Date());
+  
   const [isReturnCalendarOpen, setReturnCalendarOpen] = useState(false);
 
   const toggleStartDateCalendar = () => {
@@ -118,15 +118,15 @@ export function BookCard() {
     if (isStartCalendarOpen) setStartCalendarOpen(false);
   };
 
-  const state = useSelector((state: State) => state.booking);
-  const dispatch = useDispatch();
-  const { setDates } = bindActionCreators(actionCreators, dispatch);
-  
-  const handleClick = () => {
-    setDates({ startDate, returnDate});
-    console.log(state);
+  const handleCLick = () => {
+    console.log(state.startDate);
+    console.log(state.returnDate);
   };
 
+  const state = useSelector((state: State) => state.booking);
+  const dispatch = useDispatch();
+  const { setStartDate, setReturnDate } = bindActionCreators(actionCreators, dispatch);
+  
   return (
     <CardContainer>
       <ItemContainer>
@@ -140,7 +140,7 @@ export function BookCard() {
           />
         </SmallIcon>
         {isStartCalendarOpen && (
-          <DateCalendar value={startDate} onChange={setStartDate as any} />
+          <DateCalendar onChange={setStartDate} />
         )}
       </ItemContainer>
       <LineSeperator />
@@ -157,13 +157,12 @@ export function BookCard() {
         {isReturnCalendarOpen && (
           <DateCalendar
             offset 
-            value={returnDate}
-            onChange={setreturnDate as any}
+            onChange={setReturnDate}
           />
         )}
       </ItemContainer>
       <Marginer direction="horizontal" margin="2em" />
-      <Button onClick={handleClick} to="/booking-process/choose-store" text="Book" />
+      <Button onClick={handleCLick} to="/booking-process/choose-store" text="Book" />
     </CardContainer>
   );
 }

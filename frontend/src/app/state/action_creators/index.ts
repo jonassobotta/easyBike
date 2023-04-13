@@ -2,11 +2,20 @@ import { ActionType } from '../action_types';
 import { Dispatch } from 'redux';
 import { Action } from '../actions/index';
 
-export const setDates = (dates: {startDate: Date; returnDate: Date}) => {
+export const setStartDate = (startDate: Date) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
-            type: ActionType.SET_DATES,
-            payload: dates
+            type: ActionType.SET_START_DATE,
+            payload: startDate
+        });
+    }
+};
+
+export const setReturnDate = (returnDate: Date) => {
+    return (dispatch: Dispatch<Action>) => {
+        dispatch({
+            type: ActionType.SET_RETURN_DATE,
+            payload: returnDate
         });
     }
 };
