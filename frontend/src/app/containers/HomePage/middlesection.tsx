@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { ImageDescription } from "../../components/middlesection/imagedescription";
+import { ImageDescription } from "../../components/imagedescription";
 
 import StandardBike from "../../assets/standard-bike.png";
 

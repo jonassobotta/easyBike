@@ -45,3 +45,21 @@ export const setUserInfo = (userInfo: {
         });
     }
 };
+
+export const setImageUrls = (urls: string[]) => {
+    return (dispatch: Dispatch<Action>) => {
+        dispatch({
+            type: ActionType.SET_IMAGE_URLS,
+            payload: urls
+        });
+    }
+}
+
+export const setSelectedIndex = (index: number) => {
+    return (dispatch: Dispatch<Action>) => {
+        dispatch({
+            type: ActionType.SET_SELECTED_INDEX,
+            payload: index
+        });
+    }
+}

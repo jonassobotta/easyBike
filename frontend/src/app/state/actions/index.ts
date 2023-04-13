@@ -27,4 +27,19 @@ interface SetUserInfoAction {
     }
 };
 
-export type Action = SetStartDateAction | SetReturnDateAction | SetStoreAction | SetUserInfoAction;
+interface SetImageUrlsAction {
+    type: ActionType.SET_IMAGE_URLS,
+    payload: string[]
+};
+
+interface SetSelectedIndexAction {
+    type: ActionType.SET_SELECTED_INDEX,
+    payload: number
+};
+
+export type Action = SetStartDateAction | 
+                     SetReturnDateAction | 
+                     SetStoreAction | 
+                     SetUserInfoAction |
+                     SetImageUrlsAction |
+                     SetSelectedIndexAction;

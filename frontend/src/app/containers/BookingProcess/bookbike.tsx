@@ -7,6 +7,8 @@ import { Button } from "../../components/button";
 import { BookForm } from "../../components/bookForm";
 import { Footer } from "../../components/footer";
 import { Marginer } from "../../components/marginer";
+import { ImageDescription } from "../../components/imagedescription";
+import { ImageDropdown } from "../../components/dropdown/ImageDropdown";
 
 const PageContainer = styled.div `
     ${tw`
@@ -35,6 +37,8 @@ export function BookBike() {
         <TopSection pickUpActive={false} chooseStoreActive={false} bookBikeActive={true}/>
         <Title>Book Bike</Title>
         
+        <ImageDropdown />
+
         <BookForm />
 
         <div className="flex flex-row justify-between">
