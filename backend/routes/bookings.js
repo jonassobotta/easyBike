@@ -6,7 +6,6 @@ import {
     getBookings, 
     updateBooking,
     getBookingBikes,
-    getBookingStores 
 } from '../controllers/booking.js';
 import Booking from '../models/Booking.js';
 import { verifyAdmin, verifyUser } from '../utils/verifyToken.js';
@@ -30,8 +29,5 @@ router.get("/", getBookings);
 
 //GET BIKES
 router.get("/:id/bikes", getBookingBikes);
-
-//GET STORES
-router.get("/:id/stores", getBookingStores);
 
 export default router;

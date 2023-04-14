@@ -32,30 +32,69 @@ export const createBooking = async (req, res, next) => {
     }
 };
 
-  
-  
-
 export const updateBooking = async (req, res, next) => {
     try {
+        const booking = await Booking.findById(req.params.id);
         const updatedBooking = await Booking.findByIdAndUpdate(
             req.params.id,
             { $set: req.body },
             { new: true }
         );
+
+        await Promise.all(
+            updatedBooking.bikes.map(async (bike) => {
+                const bikeToUpdate = await Bike.findById(bike);
+                const daysToAdd = getDatesBetween(updatedBooking.startDate, updatedBooking.endDate);
+                const daysToDelete = getDatesBetween(booking.startDate, booking.endDate);
+                bikeToUpdate.bookedDays = bikeToUpdate.bookedDays.filter((date) => {
+                    return !daysToDelete.some((dayToDelete) => {
+                        return date.getTime() === dayToDelete.getTime();
+                    });
+                });
+                bikeToUpdate.bookedDays.push(...daysToAdd);
+                await bikeToUpdate.save();
+            })
+        );
+
         res.status(200).json(updatedBooking);
     } catch (err) {
         next(err);
     }
-};
+};  
 
 export const deleteBooking = async (req, res, next) => {
     try {
-        await Booking.findByIdAndDelete(req.params.id);
+        const deletedBooking = await Booking.findByIdAndDelete(req.params.id);
+        
+        await Promise.all(
+            deletedBooking.bikes.map(async (bike) => {
+                const bikeToUpdate = await Bike.findById(bike);
+                const daysToDelete = getDatesBetween(deletedBooking.startDate, deletedBooking.endDate);
+                bikeToUpdate.bookedDays = bikeToUpdate.bookedDays.filter((date) => {
+                    return !daysToDelete.some((dayToDelete) => {
+                        return date.getTime() === dayToDelete.getTime();
+                    });
+                });
+                await bikeToUpdate.save();
+            })
+        );
         res.status(200).json('Booking has been deleted.');
     } catch (err) {
         next(err);
     }
 };
+
+function getDatesBetween(startDate, endDate) {
+    const dates = [];
+    let currentDate = new Date(startDate);
+    while (currentDate <= endDate) {
+        dates.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return dates;
+}
+
+  
 
 export const getBooking = async (req, res, next) => {
     try {
@@ -81,20 +120,6 @@ export const getBookingBikes = async (req, res, next) => {
         const list = await Promise.all(
             booking.bikes.map((bike) => {
                 return Bike.findById(bike);
-            })
-        );
-        res.status(200).json(list);
-    } catch (err) {
-        next(err);
-    }
-};
-
-export const getBookingStores = async (req, res, next) => {
-    try{
-        const booking = await Booking.findById(req.params.id);
-        const list = await Promise.all(
-            booking.stores.map((store) => {
-                return Store.findById(store);
             })
         );
         res.status(200).json(list);
