@@ -23,17 +23,19 @@ const BookingSchema = new Schema({
         },
         required: true,
     },
-    bike: {
-        type: Schema.Types.ObjectId,
-        ref: "Bike",
-        required: true,
-    },
-    date: {
+    bikes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Bike",
+            required: true,
+        },
+    ],
+    startDate: {
         type: Date,
         required: true,
     },
-    time: {
-        type: String,
+    endDate: {
+        type: Date,
         required: true,
     },
     status: {
@@ -46,6 +48,8 @@ const BookingSchema = new Schema({
         required: true,
         default: false,
     },
-});
+    },
+    { timestamps: true}
+);
 
 export default mongoose.model("Booking", BookingSchema);

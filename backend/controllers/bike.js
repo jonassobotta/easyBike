@@ -80,3 +80,17 @@ export const getBikes = async (req, res, next) => {
     next(err);
   }
 };
+
+// GET BIKES in available dates
+export const getBikesInAvailableDates = async (req, res, next) => {
+  try {
+    const bikes = await Bike.find({
+      storeId: req.params.storeId,
+      bookedDays: { $nin: req.body.bookedDays },
+    });
+    res.status(200).json(bikes);
+  } catch (err) {
+    next(err);
+  }
+};
+

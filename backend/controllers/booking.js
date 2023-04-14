@@ -4,14 +4,36 @@ import Store from '../models/Store.js';
 
 export const createBooking = async (req, res, next) => {
     const newBooking = new Booking(req.body);
-
+    
     try {
         const savedBooking = await newBooking.save();
+        const updatedBikes = await Promise.all(
+            savedBooking.bikes.map(async (bike) => {
+                const bikeToUpdate = await Bike.findById(bike);
+                const startDate = new Date(savedBooking.startDate);
+                const endDate = new Date(savedBooking.endDate);
+                const days = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24)); // get the total number of days between start and end date
+                const bookedDays = [];
+
+                // add all the dates between start and end date to the bookedDays array
+                for (let i = 0; i <= days; i++) {
+                    const date = new Date(startDate);
+                    date.setDate(startDate.getDate() + i);
+                    bookedDays.push(date);
+                }
+
+                bikeToUpdate.bookedDays.push(...bookedDays);
+                return await bikeToUpdate.save();
+            })
+        );
         res.status(200).json(savedBooking);
     } catch (err) {
         next(err);
     }
 };
+
+  
+  
 
 export const updateBooking = async (req, res, next) => {
     try {
