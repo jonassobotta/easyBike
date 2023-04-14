@@ -46,6 +46,7 @@ export function BookBike() {
         
         </div>
         <Marginer direction="vertical" margin="10em" />
+        
         <Footer />
     </PageContainer>
   );

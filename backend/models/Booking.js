@@ -47,3 +47,5 @@ const BookingSchema = new Schema({
         default: false,
     },
 });
+
+export default mongoose.model("Booking", BookingSchema);

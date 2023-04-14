@@ -35,14 +35,13 @@ export function ChooseStore() {
       <TopSection pickUpActive={false} chooseStoreActive={true} bookBikeActive={false} />
       <Title>Choose Store</Title>
       <DropDown />
-      <Marginer direction="vertical" margin="4em" />
+      <Marginer direction="vertical" margin="20em" />
 
       <div className="flex flex-row justify-between">
         <Button text="Back" theme="filled" to="/booking-process/pick-up-date" />
         <Button text="Next" theme="filled" to="/booking-process/book-bike" />
       </div>
-
-      <Marginer direction="vertical" margin="4em" />
+      <Marginer direction="vertical" margin="12em" />
       <Footer />
    </PageContainer>
   );

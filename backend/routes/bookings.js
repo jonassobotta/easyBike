@@ -4,7 +4,9 @@ import {
     deleteBooking,
     getBooking, 
     getBookings, 
-    updateBooking 
+    updateBooking,
+    getBookingBikes,
+    getBookingStores 
 } from '../controllers/booking.js';
 import Booking from '../models/Booking.js';
 import { verifyAdmin, verifyUser } from '../utils/verifyToken.js';
@@ -25,5 +27,11 @@ router.get("/find/:id", getBooking);
 
 //GET ALL
 router.get("/", getBookings);
+
+//GET BIKES
+router.get("/:id/bikes", getBookingBikes);
+
+//GET STORES
+router.get("/:id/stores", getBookingStores);
 
 export default router;
