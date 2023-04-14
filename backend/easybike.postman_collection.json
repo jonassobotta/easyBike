@@ -367,6 +367,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"zip\": \"68163\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:3001/api/users/:id",
 							"host": [
@@ -381,7 +390,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "6435a86a65c7d43e7ee5c983"
 								}
 							]
 						}
@@ -547,7 +556,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"Jonas\",\n    \"email\": \"jonas-sobotta@web.de\",\n    \"country\": \"germany\",\n    \"img\": \"\",\n    \"city\": \"Mannheim\",\n    \"phone\": \"123456789\",\n    \"password\": \"password123\",\n    \"isAdmin\": true\n}",
+							"raw": "{\n    \"username\": \"Jonas\",\n    \"email\": \"jonas-sobotta@web.de\",\n    \"country\": \"germany\",\n    \"img\": \"\",\n    \"city\": \"Mannheim\",\n    \"street\": \"Coblitzallee 12\",\n    \"phone\": \"123456789\",\n    \"password\": \"password123\",\n    \"isAdmin\": true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
