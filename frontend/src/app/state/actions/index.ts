@@ -37,9 +37,27 @@ interface SetSelectedIndexAction {
     payload: number
 };
 
+interface SetCitybikeCountAction {
+    type: ActionType.SET_CITYBIKE_COUNT,
+    payload: number
+};
+
+interface SetMountainbikeCountAction {
+    type: ActionType.SET_MOUNTAINBIKE_COUNT,
+    payload: number
+};
+
+interface SetRacingbikeCountAction {
+    type: ActionType.SET_RACINGBIKE_COUNT,
+    payload: number
+};
+
 export type Action = SetStartDateAction | 
                      SetReturnDateAction | 
                      SetStoreAction | 
                      SetUserInfoAction |
                      SetImageUrlsAction |
-                     SetSelectedIndexAction;
+                     SetSelectedIndexAction |
+                     SetCitybikeCountAction |
+                     SetMountainbikeCountAction |
+                     SetRacingbikeCountAction;

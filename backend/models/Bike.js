@@ -27,6 +27,11 @@ const BikeSchema = new Schema(
             type: [Date],
             required: true,
         },
+        store: {
+            type: Schema.Types.ObjectId,
+            ref: 'Store',
+            required: true,
+        },
     },
     {
         timestamps: true,

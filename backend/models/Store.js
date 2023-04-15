@@ -19,7 +19,8 @@ const StoreSchema = new Schema({
         required: true,
     },
     bikes: {
-        type: [String]
+        type: [Schema.Types.ObjectId],
+        ref: "Bike",
     }
 });
 

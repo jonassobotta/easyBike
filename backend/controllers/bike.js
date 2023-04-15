@@ -83,10 +83,14 @@ export const getBikes = async (req, res, next) => {
 
 // GET BIKES in available dates
 export const getBikesInAvailableDates = async (req, res, next) => {
+  const startDate = new Date(req.body.startDate);
+  const returnDate = new Date(req.body.returnDate);
+  const bookedDays = getDatesBetween(startDate, returnDate);
+  
   try {
     const bikes = await Bike.find({
-      storeId: req.params.storeId,
-      bookedDays: { $nin: req.body.bookedDays },
+      store: req.params.store,
+      bookedDays: { $nin: bookedDays },
     });
     res.status(200).json(bikes);
   } catch (err) {
@@ -94,3 +98,12 @@ export const getBikesInAvailableDates = async (req, res, next) => {
   }
 };
 
+function getDatesBetween(startDate, endDate) {
+  const dates = [];
+  let currentDate = new Date(startDate);
+  while (currentDate <= endDate) {
+      dates.push(new Date(currentDate));
+      currentDate.setDate(currentDate.getDate() + 1);
+  }
+  return dates;
+}

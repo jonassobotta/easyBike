@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c08dac9b-6356-45ea-8988-1057b23f064f",
+		"_postman_id": "5ed1aa9d-fb19-4c00-b3bc-03457ae4ec50",
 		"name": "easybike",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"easybike Mannheim Coblitzallee\",\n    \"address\": \"Coblitzallee 10\",\n    \"postalCode\": \"68163\",\n    \"city\": \"Mannheim\",\n    \"Bikes\": []\n}",
+							"raw": "{\n    \"name\": \"easybike Mannheim Coblitzallee\",\n    \"address\": \"Coblitzallee 10\",\n    \"postalCode\": \"68163\",\n    \"city\": \"Mannheim\",\n    \"bikes\": []\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -217,7 +217,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"bookedDays\": []\n}",
+							"raw": "{\n    \"store\": \"6435a9e6c955f0d834f74393\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -352,6 +352,45 @@
 							"path": [
 								"api",
 								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get bikes in available time",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startDate\": \"2023-05-08T00:00:00.000Z\",\n    \"returnDate\": \"2023-05-08T00:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/api/bikes/available/:store",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"bikes",
+								"available",
+								":store"
+							],
+							"variable": [
+								{
+									"key": "store",
+									"value": "6435a9e6c955f0d834f74393"
+								}
 							]
 						}
 					},
@@ -801,7 +840,10 @@
 					"name": "get",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}

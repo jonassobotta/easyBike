@@ -63,3 +63,30 @@ export const setSelectedIndex = (index: number) => {
         });
     }
 }
+
+export const setCitybikeCount = (count: number) => {
+    return (dispatch: Dispatch<Action>) => {
+        dispatch({
+            type: ActionType.SET_CITYBIKE_COUNT,
+            payload: count
+        });
+    }
+}
+
+export const setMountainbikeCount = (count: number) => {
+    return (dispatch: Dispatch<Action>) => {
+        dispatch({
+            type: ActionType.SET_MOUNTAINBIKE_COUNT,
+            payload: count
+        });
+    }
+}
+
+export const setRacingbikeCount = (count: number) => {
+    return (dispatch: Dispatch<Action>) => {
+        dispatch({
+            type: ActionType.SET_RACINGBIKE_COUNT,
+            payload: count
+        });
+    }
+}
