@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
 import { useEffect } from "react";
+import axios from "axios";
 
 const BookFormContainer = styled.form`
     ${tw`
@@ -68,7 +69,7 @@ export function BookForm() {
     const dispatch = useDispatch();
     const { setUserInfo } = bindActionCreators(actionCreators, dispatch);
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log("Name: " + name);
         console.log("Email: " + email);
@@ -79,6 +80,23 @@ export function BookForm() {
         console.log("Phone: " + phone);
 
         setUserInfo({name, email, country, city, street, zip, phone});
+
+        const requestBody = {
+            store: state.storeId,
+            userInfo: state.userInfo,
+            bikes: ["6435ac46fe2fef5814fc69bf"],
+            startDate: state.startDate,
+            endDate: state.returnDate,
+            status: "pending",
+            isPaid: false,
+        };
+
+        try{
+            const response = await axios.post("/bookings/", requestBody);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     useEffect(() => {
