@@ -41,10 +41,6 @@ export function BookBike() {
 
         <BookForm />
 
-        <div className="flex flex-row justify-between">
-        <Button text="Back" theme="filled" to="/booking-process/choose-store" />
-        
-        </div>
         <Marginer direction="vertical" margin="10em" />
         
         <Footer />

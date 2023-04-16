@@ -7,6 +7,7 @@ import { HomePage } from './app/containers/HomePage';
 import { ChooseStore } from './app/containers/BookingProcess/choosestore';
 import { PickUpDate } from './app/containers/BookingProcess/pickup';
 import { BookBike } from './app/containers/BookingProcess/bookbike';
+import { Confirmation } from './app/containers/BookingProcess/confirmation';
 
 const AppContainer = styled.div`
   ${tw`
@@ -28,6 +29,7 @@ function App() {
           <Route path="/booking-process/choose-store" element={<ChooseStore />} />
           <Route path="/booking-process/pick-up-date" element={<PickUpDate />} />
           <Route path="/booking-process/book-bike" element={<BookBike />} />
+          <Route path="/booking-process/confirmation" element={<Confirmation />} />
         </Routes>
       </AppContainer>
     </Router>

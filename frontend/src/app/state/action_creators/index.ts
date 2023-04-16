@@ -1,6 +1,7 @@
 import { ActionType } from '../action_types';
 import { Dispatch } from 'redux';
 import { Action } from '../actions/index';
+import { Bike } from '../reducers/bikeReducer';
 
 export const setStartDate = (startDate: Date) => {
     return (dispatch: Dispatch<Action>) => {
@@ -64,29 +65,31 @@ export const setSelectedIndex = (index: number) => {
     }
 }
 
-export const setCitybikeCount = (count: number) => {
+
+
+export const setCityBikes = (bike: Bike) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
-            type: ActionType.SET_CITYBIKE_COUNT,
-            payload: count
+            type: ActionType.SET_CITYBIKES,
+            payload: bike
         });
     }
 }
 
-export const setMountainbikeCount = (count: number) => {
+export const setMountainBikes = (bike: Bike) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
-            type: ActionType.SET_MOUNTAINBIKE_COUNT,
-            payload: count
+            type: ActionType.SET_MOUNTAINBIKES,
+            payload: bike
         });
     }
 }
 
-export const setRacingbikeCount = (count: number) => {
+export const setRacingBikes = (bike: Bike) => {
     return (dispatch: Dispatch<Action>) => {
         dispatch({
-            type: ActionType.SET_RACINGBIKE_COUNT,
-            payload: count
+            type: ActionType.SET_RACINGBIKES,
+            payload: bike
         });
     }
 }

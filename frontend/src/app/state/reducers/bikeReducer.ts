@@ -1,25 +1,33 @@
 import { ActionType } from "../action_types";
 import { Action } from "../actions/index";
 
-const count: number = 0;
+export type Bike = {
+    name: string;
+    type: string;
+    price: number;
+    description: string;
+    image: string;
+    bookedDates: Date[];
+    store: string;
+}
 
 const initialState = {
-    citybikeCount: count,
-    mountainbikeCount: count,
-    racingbikeCount: count,
+    cityBikes: [],
+    mountainBikes: [],
+    racingBikes: []
 };
 
 const bikeReducer = (state = initialState, action: Action) => {
     switch (action.type) {
-        case ActionType.SET_CITYBIKE_COUNT:
-            return { ...state, citybikeCount: action.payload };
-        case ActionType.SET_MOUNTAINBIKE_COUNT:
-            return { ...state, mountainbikeCount: action.payload };
-        case ActionType.SET_RACINGBIKE_COUNT:
-            return { ...state, racingbikeCount: action.payload };
+        case ActionType.SET_CITYBIKES:
+            return { ...state, cityBikes: action.payload };
+        case ActionType.SET_MOUNTAINBIKES:
+            return { ...state, mountainBikes: action.payload };
+        case ActionType.SET_RACINGBIKES:
+            return { ...state, racingBikes: action.payload };
         default:
             return state;
-    }
+    }   
 }
 
 export default bikeReducer;

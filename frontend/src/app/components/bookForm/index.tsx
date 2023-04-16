@@ -6,14 +6,15 @@ import { State } from "../../state";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
-import { useEffect } from "react";
-import axios from "axios";
+import axios from "axios";  
+import { Button } from "../../components/button";
+import { useNavigate } from "react-router-dom";
 
 const BookFormContainer = styled.form`
     ${tw`
         flex
         flex-col
-        space-y-4
+        space-y-4 
     `}
 `;
 
@@ -69,15 +70,10 @@ export function BookForm() {
     const dispatch = useDispatch();
     const { setUserInfo } = bindActionCreators(actionCreators, dispatch);
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log("Name: " + name);
-        console.log("Email: " + email);
-        console.log("Country: " + country);
-        console.log("City: " + city);
-        console.log("Street: " + street);
-        console.log("Zip: " + zip);
-        console.log("Phone: " + phone);
 
         setUserInfo({name, email, country, city, street, zip, phone});
 
@@ -94,14 +90,12 @@ export function BookForm() {
         try{
             const response = await axios.post("/bookings/", requestBody);
             console.log(response.data);
+
+            navigate("/booking-process/confirmation");
         } catch (error) {
             console.log(error);
         }
     };
-
-    useEffect(() => {
-        console.log(state.userInfo);
-    }, [state.userInfo]);
 
     return (
         <BookFormContainer onSubmit={handleSubmit}>
@@ -155,8 +149,13 @@ export function BookForm() {
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
             />
-            <FromButton type="submit">Submit</FromButton>
-
+                    
+            <div className="center-buttons">
+                <div className="flex flex-row justify-between">
+                    <Button text="Back" theme="filled" to="/booking-process/choose-store" />
+                    <FromButton type="submit">Pay With Stripe</FromButton>
+                </div>
+            </div>        
         </BookFormContainer>
     );
 }

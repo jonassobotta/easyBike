@@ -1,6 +1,7 @@
 import Bike from "../models/Bike.js";
 import Store from "../models/Store.js";
 import { createError } from "../utils/error.js";
+import mongoose from "mongoose";
 
 export const createBike = async (req, res, next) => {
   const storeId = req.params.storeid;
@@ -66,7 +67,7 @@ export const deleteBike = async (req, res, next) => {
 };
 export const getBike = async (req, res, next) => {
   try {
-    const bike = await Bike.findById(req.params.id);
+    const bike = await Bike.findById(new mongoose.Types.ObjectId(req.params.id));
     res.status(200).json(bike);
   } catch (err) {
     next(err);

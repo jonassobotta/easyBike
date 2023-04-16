@@ -24,40 +24,34 @@ export function DropDown(){
     const [selected, setSelected] = React.useState("Select a city");
 
     const handleSelect = async (e: any) => {
-            setSelected(e.target.value);
+        setSelected(e.target.value);
         if (e.target.value !== "Select a city") {
-            setStore(e.target.value);
-            
-
             try {
-                const response = await axios.get(`/bikes/available/${bookingState.storeId}`);
-                console.log(response.data);
-
+                const selectedCityId = e.target.value;
+                setStore(selectedCityId);
+                bookingState.storeId = selectedCityId;
+    
+                const response = await axios.get(`/bikes/available/${selectedCityId}`);
                 const bikes = response.data;
-
-                //count bikes
-                await setCitybikeCount(bikes.filter((bike: any) => bike.name === "city").length);
-                await setMountainbikeCount(bikes.filter((bike: any) => bike.name === "mountain").length);
-                await setRacingbikeCount(bikes.filter((bike: any) => bike.name === "racing").length);
-
+    
+                setCityBikes(bikes.filter((bike: any) => bike.name === "city"));
+                setMountainBikes(bikes.filter((bike: any) => bike.name === "mountain"));
+                setRacingBikes(bikes.filter((bike: any) => bike.name === "racing"));
+    
             } catch (error) {
                 console.log(error);
             }
         }
     };
-    const bikeState = useSelector((state: State) => state.bikes);
+    
     const bookingState = useSelector ((state: State) => state.booking);
     const dispatch = useDispatch();
-    const { setStore, setCitybikeCount, setMountainbikeCount, setRacingbikeCount } = bindActionCreators(actionCreators, dispatch);
-
-    useEffect(() => {
-        console.log(bookingState.storeId, bikeState.citybikeCount, bikeState.mountainbikeCount, bikeState.racingbikeCount);
-    }, [bookingState.storeId, bikeState.citybikeCount, bikeState.mountainbikeCount, bikeState.racingbikeCount]);
+    const { setStore, setCityBikes, setMountainBikes, setRacingBikes  } = bindActionCreators(actionCreators, dispatch);
 
     return (
         <Container>
             <select value={selected} onChange={handleSelect}>
-                <option value="Select a city">Select a city</option>
+                <option value="Select a City">Select a city</option>
                 <option value="6435a9e6c955f0d834f74393">Mannheim</option>
                 <option value="Los Angeles">Los Angeles</option>
                 <option value="Chicago">Chicago</option>

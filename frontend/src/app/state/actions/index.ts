@@ -1,4 +1,5 @@
 import { ActionType } from "../action_types"
+import { Bike } from "../reducers/bikeReducer";
 
 interface SetStartDateAction {
     type: ActionType.SET_START_DATE, 
@@ -38,18 +39,18 @@ interface SetSelectedIndexAction {
 };
 
 interface SetCitybikeCountAction {
-    type: ActionType.SET_CITYBIKE_COUNT,
-    payload: number
+    type: ActionType.SET_CITYBIKES,
+    payload: Bike
 };
 
 interface SetMountainbikeCountAction {
-    type: ActionType.SET_MOUNTAINBIKE_COUNT,
-    payload: number
+    type: ActionType.SET_MOUNTAINBIKES,
+    payload: Bike
 };
 
 interface SetRacingbikeCountAction {
-    type: ActionType.SET_RACINGBIKE_COUNT,
-    payload: number
+    type: ActionType.SET_RACINGBIKES,
+    payload: Bike
 };
 
 export type Action = SetStartDateAction | 
