@@ -4,8 +4,13 @@ import { State } from "../../state";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-import standardBike from "../../assets/standard-bike.png";
+import CityBike from "../../assets/citybike.jpg";
+import MountainBike from "../../assets/mountainbike.jpg";
+import RacingBike from "../../assets/racingbike.jpg";
+import { Marginer } from "../marginer";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
     ${tw`
@@ -18,10 +23,10 @@ const Container = styled.div`
     `}
 `;
 
-const ImageDescrioptionContainer = styled.div`
+const ImageDescriptionContainer = styled.div`
     ${tw`
         flex
-        flex-row   
+        flex-row  
     `}
 `;
 
@@ -29,6 +34,10 @@ const ImageContainer = styled.div`
     ${tw`
         w-full
         h-1/2
+        border-green-500
+        border-2
+        border-solid
+        rounded-md
     `}
 `;
 
@@ -68,15 +77,26 @@ const Description = styled.p`
         text-lg
         mb-4
         text-left
-    `}
+    `};
+
+    & span {
+        ${tw`text-green-500`}
+    }
 `;
 
-const ButtonContainer = styled.div`
+const IconContainer = styled.div`
     ${tw`
         flex
         justify-center
         items-center
         space-x-4
+    `}
+`;
+
+const Icon = styled.div`
+    ${tw`
+        text-green-500
+        text-2xl
     `}
 `;
 
@@ -87,51 +107,66 @@ export function ImageDropdown(){
 
     return (
         <Container>
-            <ImageDescrioptionContainer>
+            <ImageDescriptionContainer>
             <ImageContainer>
-                <Image src={standardBike} />
+                <Image src={CityBike} />
             </ImageContainer>
             <TextContainer>
                 <Title>City Bike</Title>
                 <Description>Available: {bikeState.cityBikes.length}</Description>
-                <Description>Our city bike is perfect for a day out in the city. It's light and easy to handle.</Description>
-                <Description>Price: $4 / day</Description>
-                <ButtonContainer>
-                    <button>+</button>
-                    <button>-</button>
-                </ButtonContainer>
+                <Description>Price: <span>$4 / day</span></Description>
+                <IconContainer>
+                    <Icon>
+                        <FontAwesomeIcon icon={faCircleMinus} />   
+                    </Icon>
+                    <Icon>
+                        <FontAwesomeIcon icon={faCirclePlus} />
+                    </Icon>
+                </IconContainer>
             </TextContainer>
-            </ImageDescrioptionContainer>
-            <ImageDescrioptionContainer>
+            </ImageDescriptionContainer>
+
+            <Marginer direction="vertical" margin="2em" />
+
+            <ImageDescriptionContainer>
             <ImageContainer>
-                <Image src={standardBike} />
+                <Image src={MountainBike} />
             </ImageContainer>
             <TextContainer>
                 <Title>Mountain Bike</Title>
                 <Description>Available: {bikeState.mountainBikes.length}</Description>
-                <Description>Our mountain bike is perfect for exploring rough terrains with ease. It's designed to be lightweight and agile, making it easy to handle and maneuver even on challenging trails.</Description>
-                <Description>Price: $5 / day</Description>
-                <ButtonContainer>
-                    <button>+</button>
-                    <button>-</button>
-                </ButtonContainer>
+                <Description>Price: <span>$5 / day</span></Description>
+                <IconContainer>
+                    <Icon>
+                        <FontAwesomeIcon icon={faCircleMinus} />   
+                    </Icon>
+                    <Icon>
+                        <FontAwesomeIcon icon={faCirclePlus} />
+                    </Icon>
+                </IconContainer>
             </TextContainer>
-            </ImageDescrioptionContainer>
-            <ImageDescrioptionContainer>
+            </ImageDescriptionContainer>
+
+            <Marginer direction="vertical" margin="2em" />
+
+            <ImageDescriptionContainer>
             <ImageContainer>
-                <Image src={standardBike} />
+                <Image src={RacingBike} />
             </ImageContainer>
             <TextContainer>
                 <Title>Racing Bike</Title>
                 <Description>Available: {bikeState.racingBikes.length}</Description>
-                <Description>Our racing bike is perfect for fast-paced rides on smooth surfaces, whether it's for training or competition. It's designed to be lightweight and responsive, making it easy to handle and reach high speeds with minimal effort.</Description>
-                <Description>Price: $6 / day</Description>
-                <ButtonContainer>
-                    <button>+</button>
-                    <button>-</button>
-                </ButtonContainer>
+                <Description>Price: <span>$6 / day</span></Description>
+                <IconContainer>
+                    <Icon>
+                        <FontAwesomeIcon icon={faCircleMinus} />   
+                    </Icon>
+                    <Icon>
+                        <FontAwesomeIcon icon={faCirclePlus} />
+                    </Icon>
+                </IconContainer>
             </TextContainer>
-            </ImageDescrioptionContainer>
+            </ImageDescriptionContainer>
 
         </Container>
 

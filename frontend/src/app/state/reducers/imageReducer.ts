@@ -1,6 +1,8 @@
 import { ActionType } from "../action_types";
 import { Action } from "../actions";
-import StandardBikeImg from '../../assets/standard-bike.png';
+import CityBike from '../../assets/citybike.jpg';
+import MountainBike from '../../assets/mountainbike.jpg';
+import RacingBike from '../../assets/racingbike.jpg';
 
 interface ImagesState {
     urls: string[];
@@ -9,7 +11,9 @@ interface ImagesState {
 
 const initialState = {
     urls: [
-        StandardBikeImg,
+        CityBike,
+        MountainBike,
+        RacingBike
     ],
     selectedIndex: 0,
 };

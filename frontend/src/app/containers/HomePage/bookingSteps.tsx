@@ -92,7 +92,7 @@ import {
   export function BookingSteps() {
     return (
       <Container>
-        <Title>Our Working Steps</Title>
+        <Title>Our Booking Steps</Title>
         <StepsContainer>
         <StepContainer>
             <Step>

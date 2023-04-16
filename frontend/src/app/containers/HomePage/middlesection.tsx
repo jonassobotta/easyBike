@@ -3,54 +3,45 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { ImageDescription } from "../../components/imagedescription";
 
-import StandardBike from "../../assets/standard-bike.png";
+import CityBike from "../../assets/citybike.jpg";
+import MountainBike from "../../assets/mountainbike.jpg";
+import RacingBike from "../../assets/racingbike.jpg";
 
 const MiddleSectionContainer = styled.div`
     ${tw`
-        w-full
+        w-1/2
     `};
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
     ${tw`
-        text-3xl
-        md:text-5xl
-        font-bold
-        text-green-500
-        mt-4
-        md:mt-6
-        lg:mt-8
-        xl:mt-10
-        sm:mx-0
-        md:mx-0
-        lg:mx-0
-        xl:mx-0
-        md:ml-auto
-        lg:ml-auto
-        xl:ml-auto
-        text-center
-    `}
+      text-3xl
+      lg:text-5xl
+      text-black
+      font-extrabold
+      text-center
+    `};
 `;
 
 export function MiddleSection() {
     
     return (
         <MiddleSectionContainer>
-            <Title>Choose your bike</Title>
+            <Title>Our Bikes</Title>
             <ImageDescription
-                imageSrc={StandardBike}
+                imageSrc={CityBike}
                 isImageOnRight={true}
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, eget aliquet nisl nisl eget nisl. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, eget aliquet nisl nisl eget nisl."
+                description="Our city bike is perfect for a day out in the city. It's light and easy to handle."
             />
             <ImageDescription
-                imageSrc={StandardBike}
+                imageSrc={MountainBike}
                 isImageOnRight={false}
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, eget aliquet nisl nisl eget nisl. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, eget aliquet nisl nisl eget nisl."
+                description="Our mountain bike is perfect for exploring rough terrains with ease. It's designed to be lightweight and agile, making it easy to handle and maneuver even on challenging trails."
             />
             <ImageDescription
-                imageSrc={StandardBike}
+                imageSrc={RacingBike}
                 isImageOnRight={true}
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, eget aliquet nisl nisl eget nisl. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, eget aliquet nisl nisl eget nisl."
+                description="Our racing bike is perfect for fast-paced rides on smooth surfaces, whether it's for training or competition. It's designed to be lightweight and responsive, making it easy to handle and reach high speeds with minimal effort."
             />
         </MiddleSectionContainer>
     );

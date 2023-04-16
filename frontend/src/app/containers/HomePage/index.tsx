@@ -31,6 +31,7 @@ export function HomePage() {
       <BookingSteps />
       <Marginer direction="vertical" margin="8em" />
       <MiddleSection />
+      <Marginer direction="vertical" margin="8em" />
       <Footer />
     </PageContainer>
   );

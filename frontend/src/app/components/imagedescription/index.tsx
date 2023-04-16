@@ -35,68 +35,54 @@ const DescriptionContainer = styled.div`
     md:mx-0
     lg:mx-0
     xl:mx-0
-    md:ml-24
-    lg:ml-24
-    xl:ml-24
   `}
 `;
 
 const DescriptionLeftContainer = styled.p`
   ${tw`
     w-1/2
-    mr-1
     md:mr-1
     lg:mr-2
     text-left
+    pr-8
+    pt-24
   `}
 `;
 
 const DescriptionRightContainer = styled.p`
   ${tw`
     w-1/2
-    ml-4
-    mr-4
-    pr-2
-    md:ml-6
-    lg:ml-8
-    text-right
+    md:ml-1
+    lg:ml-2
+    text-left
+    pl-8
+    pt-24
   `}
 `;
 
 const ImageLeftContainer = styled.img`
     ${tw`
-        border
-        border-green-500
         w-1/2
-        md:w-2/5
-        border-2
-        border-green-500
-        lg:w-1/3
         mt-4
-        md:mt-0
         mb-4
-        md:mb-0
         object-scale-down
-        border-8
         border-green-500
-        rounded-lg
+        border-2
+        border-solid
+        rounded-md
     `}
 `;
 
 const ImageRightContainer = styled.img`
     ${tw`
         w-1/2
-        md:w-2/5
-        lg:w-1/3
         mt-4
-        md:mt-0
         mb-4
-        md:mb-0
-        mr-24
         object-scale-down
-        border-8
         border-green-500
-        rounded-lg
+        border-2
+        border-solid
+        rounded-md
     `}
 `;
 

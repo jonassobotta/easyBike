@@ -15,6 +15,24 @@ const BookFormContainer = styled.form`
         flex
         flex-col
         space-y-4 
+        border-green-500
+        rounded
+        border-2
+        border-solid
+        pt-10
+        pb-10
+        pl-40
+        pr-40
+    `}
+`;
+
+const BookFormWrapper = styled.div`
+    ${tw`
+        flex
+        flex-row
+        justify-between
+        space-x-4
+        p-2
     `}
 `;
 
@@ -25,6 +43,22 @@ const BookFormInput = styled.input`
         py-2
         px-3
 
+    `}
+
+    &:focus {
+        ${tw`
+            border-green-500
+            rounded
+            outline
+            outline-green-500
+            text-green-500
+        `}
+`;
+
+const BookFormLabel = styled.label`
+    ${tw`
+        text-lg
+        font-semibold
     `}
 `;
 
@@ -99,63 +133,75 @@ export function BookForm() {
 
     return (
         <BookFormContainer onSubmit={handleSubmit}>
-            <label htmlFor="name">Full Name: </label>
-            <BookFormInput
+            <BookFormWrapper>
+                <BookFormLabel htmlFor="name">Name: </BookFormLabel>
+                <BookFormInput
                 type="text"
                 id="name"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
             />
-            <label htmlFor="email">Email: </label>
-            <BookFormInput
+            </BookFormWrapper>
+            <BookFormWrapper>
+                <BookFormLabel htmlFor="email">Email: </BookFormLabel>
+                <BookFormInput
                 type="email"
                 id="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
             />
-            <label htmlFor="country">Country: </label>
-            <BookFormInput
-
+            </BookFormWrapper>
+            <BookFormWrapper>
+                <BookFormLabel htmlFor="country">Country: </BookFormLabel>
+                <BookFormInput
                 type="text"
                 id="country"
                 value={country}
                 onChange={(event) => setCountry(event.target.value)}
             />
-            <label htmlFor="city">City: </label>
-            <BookFormInput
+            </BookFormWrapper>
+            <BookFormWrapper>
+                <BookFormLabel htmlFor="city">City: </BookFormLabel>
+                <BookFormInput
                 type="text"
                 id="city"
                 value={city}
                 onChange={(event) => setCity(event.target.value)}
             />
-            <label htmlFor="street">Street: </label>
-            <BookFormInput
+            </BookFormWrapper>
+            <BookFormWrapper>
+                <BookFormLabel htmlFor="street">Street: </BookFormLabel>
+                <BookFormInput
                 type="text"
                 id="street"
                 value={street}
                 onChange={(event) => setStreet(event.target.value)}
             />
-            <label htmlFor="zip">Zip: </label>
-            <BookFormInput
+            </BookFormWrapper>
+            <BookFormWrapper>
+                <BookFormLabel htmlFor="zip">Zip: </BookFormLabel>
+                <BookFormInput
                 type="text"
                 id="zip"
                 value={zip}
                 onChange={(event) => setZip(event.target.value)}
             />
-            <label htmlFor="phone">Phone: </label>
-            <BookFormInput
+            </BookFormWrapper>
+            <BookFormWrapper>
+                <BookFormLabel htmlFor="phone">Phone: </BookFormLabel>
+                <BookFormInput
                 type="text"
                 id="phone"
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
             />
-                    
-            <div className="center-buttons">
-                <div className="flex flex-row justify-between">
-                    <Button text="Back" theme="filled" to="/booking-process/choose-store" />
-                    <FromButton type="submit">Pay With Stripe</FromButton>
-                </div>
-            </div>        
+            </BookFormWrapper>
+            
+            <BookFormWrapper>
+                <Button text="Back" theme="filled" to="/booking-process/choose-store" />
+                <FromButton type="submit">Checkout</FromButton>
+            </BookFormWrapper>
+      
         </BookFormContainer>
     );
 }

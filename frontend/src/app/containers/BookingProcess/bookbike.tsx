@@ -39,6 +39,8 @@ export function BookBike() {
         
         <ImageDropdown />
 
+        <Marginer direction="vertical" margin="5em" />
+
         <BookForm />
 
         <Marginer direction="vertical" margin="10em" />

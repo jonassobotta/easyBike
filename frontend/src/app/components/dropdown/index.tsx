@@ -53,10 +53,6 @@ export function DropDown(){
             <select value={selected} onChange={handleSelect}>
                 <option value="Select a City">Select a city</option>
                 <option value="6435a9e6c955f0d834f74393">Mannheim</option>
-                <option value="Los Angeles">Los Angeles</option>
-                <option value="Chicago">Chicago</option>
-                <option value="Houston">Houston</option>
-                <option value="Phoenix">Phoenix</option>
             </select>
         </Container>
     );
