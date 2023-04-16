@@ -119,6 +119,7 @@ export function BookForm() {
             endDate: state.returnDate,
             status: "pending",
             isPaid: false,
+            totalPrice: 0,
         };
 
         try{

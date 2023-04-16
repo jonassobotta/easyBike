@@ -48,6 +48,10 @@ const BookingSchema = new Schema({
         required: true,
         default: false,
     },
+    totalPrice: {
+        type: Number,
+        required: true,
+    },
     },
     { timestamps: true}
 );
